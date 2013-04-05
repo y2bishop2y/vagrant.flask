@@ -1,7 +1,6 @@
 class fabric {
-      package { 'Fabric':
-      	      provider => 'pip',
-	      ensure   => 'present',	
-	      }
-
+  package { 'Fabric':
+    provider => 'pip',
+    ensure   => 'present',	
+  }
 }
