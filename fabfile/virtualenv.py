@@ -15,7 +15,7 @@ def build():
         
         print(cyan('\nFABRIC: Updating venv, installing packages ...'))
         
-        do('[-e venv] || virtualenv venv --no-site-packages') 
+        do('[ -e venv ] || virtualenv venv --no-site-packages') 
 
 
         with settings(warn_only=True):

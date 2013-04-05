@@ -1,4 +1,13 @@
 alembic
-Flask
-Flask-SQLAlchemy
-Flask-Assets
+flask
+flask-sqlalchemy
+flask-Assets
+flask-login
+flask-mail
+sqlalchemy-migrate
+flask-whooshalchemy
+flask-wtf
+flask-babel
+flup
+
+

@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
     app.vm.provision :puppet do |puppet|
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path    = "puppet/modules"
-      puppet.manifest_file  = "base.pp"
+      puppet.manifest_file  = "app.pp"
     end
 
     app.vm.provision :shell, :inline => "cd /vagrant && stdbuf -o0 fab build; exit 0"

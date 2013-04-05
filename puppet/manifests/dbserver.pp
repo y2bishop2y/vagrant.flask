@@ -5,17 +5,17 @@ group { 'puppet' : ensure => 'present' }
 class mysql_5 {
 
   exec { 'update-package-list':
-    command => "sudo apt-get update",
+    command => "/usr/bin/apt-get update",
   }
 
-  package { "mysql-server-5.1":
+  package { "mysql-server-5.5":
     ensure => present,
     require => Exec["update-package-list"],
   }
 
   service { "mysql":
     ensure  => running,
-    require => Package["mysql-server.5.1"],
+    require => Package["mysql-server-5.5"],
   }
 
   exec { "create-db-schema-and-user":
@@ -24,13 +24,13 @@ class mysql_5 {
     
   }
 
-  file { "/etc/mysql/my.cnf"
+  file { "/etc/mysql/my.cnf":
     owner  => 'root',
     group  => 'root',
     mode   =>  644,
     notify => Service['mysql'],
     source => '/vagrant/puppet/modules/mysql/files/my.cnf',
-    require => Package["mysql-server-5.1"],
+    require => Package["mysql-server-5.5"],
   }
   
   
